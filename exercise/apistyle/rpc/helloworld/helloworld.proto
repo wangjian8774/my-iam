@@ -1,0 +1,22 @@
+syntax = "proto3";// 指定protoc的编译器版本
+
+// go_package是必填的，且必须是包导入路径
+option go_package = "github.com/wangjian8774/my-iam/exercise/apistyle/rpc/helloworld";
+
+// 生成的.pb.go文件所在包名
+package helloworld;
+
+// 定义服务（也就是接口）
+service Greeter {
+  // 简单模式的service（还有其他三种，服务端数据流、客户端数据流、双向数据流模式）
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+// 定义消息（也就是结构体）
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
